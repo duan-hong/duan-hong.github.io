@@ -5,15 +5,22 @@
   
 
   
-  <title>DuanHong</title>
+  <title>z-tree使用方法 | DuanHong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="DuanHong">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="最简单的树 setting配置信息说明   普通使用，无必须设置的参数 与显示相关的内容请参考 API 文档中 setting.view 内的配置信息 name、children、title 等属性定义更改请参考 API 文档中 setting.data.key 内的配置信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="z-tree使用方法">
+<meta property="og:url" content="http://yoursite.com/2020/05/25/z-tree%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="DuanHong">
+<meta property="og:description" content="最简单的树 setting配置信息说明   普通使用，无必须设置的参数 与显示相关的内容请参考 API 文档中 setting.view 内的配置信息 name、children、title 等属性定义更改请参考 API 文档中 setting.data.key 内的配置信息">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://img.duanhong.top/20200525-4ce98d68cc394eeb960c33077c5920f7.png">
+<meta property="og:image" content="http://img.duanhong.top/20200525-457f08ffdfd947adb6b118897b52b21d.png">
+<meta property="article:published_time" content="2020-05-24T23:22:11.115Z">
+<meta property="article:modified_time" content="2020-05-25T00:30:36.940Z">
 <meta property="article:author" content="断鸿">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.duanhong.top/20200525-4ce98d68cc394eeb960c33077c5920f7.png">
   
     <link rel="alternate" href="/atom.xml" title="DuanHong" type="application/atom+xml">
   
@@ -62,9 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-z-tree使用方法" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-z-tree使用方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/05/25/z-tree%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="article-date">
   <time datetime="2020-05-24T23:22:11.115Z" itemprop="datePublished">2020-05-25</time>
@@ -77,8 +82,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/25/z-tree%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">z-tree使用方法</a>
+    <h1 class="article-title" itemprop="name">
+      z-tree使用方法
     </h1>
   
 
@@ -92,12 +97,37 @@
 <ul>
 <li>普通使用，无必须设置的参数</li>
 <li>与显示相关的内容请参考 API 文档中 setting.view 内的配置信息</li>
-<li>name、children、title 等属性定义更改请参考 API 文档中 setting.data.key 内的配置信息
-        
-          <p class="article-more-link">
-            <a href="/2020/05/25/z-tree%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/#more">Read More</a>
-          </p>
-        
+<li>name、children、title 等属性定义更改请参考 API 文档中 setting.data.key 内的配置信息<a id="more"></a></li>
+</ul>
+<ol start="2">
+<li>treeNode 节点数据说明</li>
+</ol>
+<ul>
+<li>标准的 JSON 数据需要嵌套表示节点的父子包含关系<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">例如：</span><br><span class="line"><span class="keyword">var</span> nodes = [</span><br><span class="line">	&#123;<span class="attr">name</span>:<span class="string">"父节点1"</span>, <span class="attr">children</span>:[</span><br><span class="line">		&#123;<span class="attr">name</span>:<span class="string">"子节点1"</span>&#125;,</span><br><span class="line">		&#123;<span class="attr">name</span>:<span class="string">"子节点2"</span>&#125;</span><br><span class="line">	]&#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure></li>
+<li>默认展开的节点，请设置 treeNode.open 属性</li>
+<li>无子节点的父节点，请设置 treeNode.isParent 属性</li>
+<li>其他属性说明请参考 API 文档中 “treeNode 节点数据详解”</li>
+</ul>
+<ol start="3">
+<li>示例<br><img src="http://img.duanhong.top/20200525-4ce98d68cc394eeb960c33077c5920f7.png" alt=""></li>
+</ol>
+<hr>
+<h2 id="2-不显示连线的树"><a href="#2-不显示连线的树" class="headerlink" title="2.不显示连线的树"></a>2.不显示连线的树</h2><ol>
+<li>setting 配置信息说明</li>
+</ol>
+<ul>
+<li>是否显示连接线请设置 setting.view.showLine 属性，详细请参见 API 文档中的相关内容</li>
+</ul>
+<ol start="2">
+<li>treeNode 节点数据说明</li>
+</ol>
+<ul>
+<li>是否显示连线，不需要 treeNode 节点数据提供特殊设置</li>
+</ul>
+<ol start="3">
+<li>示例<br><img src="http://img.duanhong.top/20200525-457f08ffdfd947adb6b118897b52b21d.png" alt=""></li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
@@ -107,48 +137,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/25/hello-world/" class="article-date">
-  <time datetime="2020-05-24T23:13:48.115Z" itemprop="datePublished">2020-05-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/25/hello-world/">hello-world</a>
-    </h1>
+    <a href="/2020/05/25/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hello-world</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>git config --path core.worktree /home/duanhong/hexo/website
-git worktree prune</code></pre><h2 id="嗨，，小胖哥-欢迎来到闪亮亮乐园"><a href="#嗨，，小胖哥-欢迎来到闪亮亮乐园" class="headerlink" title="嗨，，小胖哥   欢迎来到闪亮亮乐园"></a>嗨，，小胖哥   欢迎来到闪亮亮乐园</h2><h3 id="不要吃太多哦"><a href="#不要吃太多哦" class="headerlink" title="不要吃太多哦"></a>不要吃太多哦</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/25/hello-world/" data-id="ckalr922e0000zstogs88bko0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-
 
 </section>
         
